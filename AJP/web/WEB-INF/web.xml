@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <jsp-file>/register-action.jsp</jsp-file>
+        <multipart-config>
+            <max-file-size>20848820</max-file-size> <!-- 20MB -->
+            <max-request-size>418018841</max-request-size> <!-- 400MB -->
+            <file-size-threshold>1048576</file-size-threshold> <!-- 1MB -->
+        </multipart-config>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UploadImageServlet</servlet-name>
+        <servlet-class>pak.UploadImageServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>20848820</max-file-size> <!-- 20MB -->
+            <max-request-size>418018841</max-request-size> <!-- 400MB -->
+            <file-size-threshold>1048576</file-size-threshold> <!-- 1MB -->
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register-action.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UploadImageServlet</servlet-name>
+        <url-pattern>/UploadImageServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
